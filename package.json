@@ -1,0 +1,22 @@
+{
+  "name": "qr-url",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VicRoot2/COMSW3102-HW6.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VicRoot2/COMSW3102-HW6/issues"
+  },
+  "homepage": "https://github.com/VicRoot2/COMSW3102-HW6#readme",
+  "description": "",
+  "dependencies": {
+    "inquirer": "^9.2.17"
+  }
+}
