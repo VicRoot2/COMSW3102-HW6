@@ -3,19 +3,25 @@
 2. Use the qr-image npm package to turn the user entered URL into a QR code image.
 3. Create a txt file to save the user input using the native fs node module.
 */
-import inquirer from 'inquirer';
+import inquirer from "inquirer";
+import qr from "qr-image";
+import { writeFile, createWriteStream } from "node:fs";
+
 
 inquirer
   .prompt([
-    /* Pass your questions in here */
+    {
+      type: 'input',
+      name: 'url',
+      message: 'Enter URL: '
+    }
   ])
   .then((answers) => {
-    // Use user feedback for... whatever!!
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
+    var qr_png = qr.image(answers.url, { type:"png" });
+    qr_png.pipe(createWriteStream("qr_img.png"))
+    writeFile('./URL.txt', answers.url, err => {
+      if (err) {
+        console.error(err);
+      }
+    });
   });
